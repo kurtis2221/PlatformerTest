@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0jueqykfinj5"]
+
+[ext_resource type="Material" uid="uid://y7bfk7ucphel" path="res://Materials/explosion.tres" id="1_2ow7l"]
+[ext_resource type="Script" path="res://Scripts/ParticleScript.cs" id="1_6wqbh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_1nrjd"]
+
+[sub_resource type="Gradient" id="Gradient_wfw1n"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[node name="Particle" type="Node3D"]
+script = ExtResource("1_6wqbh")
+time = 0.45
+
+[node name="Emitter" type="CPUParticles3D" parent="."]
+material_override = ExtResource("1_2ow7l")
+amount = 16
+lifetime = 0.5
+explosiveness = 1.0
+fract_delta = false
+mesh = SubResource("QuadMesh_1nrjd")
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+angular_velocity_min = 45.0
+angular_velocity_max = 45.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_wfw1n")
